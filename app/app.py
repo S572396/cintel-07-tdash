@@ -1,9 +1,13 @@
+#imports at top
+
 import seaborn as sns
 from faicons import icon_svg
 
 from shiny import reactive
 from shiny.express import input, render, ui
 import palmerpenguins 
+
+#Define data frame palmer penguins
 
 df = palmerpenguins.load_penguins()
 
@@ -47,6 +51,7 @@ with ui.sidebar(title="Filter controls"):
         target="_blank",
     )
 
+# Main Page Layout
 
 with ui.layout_column_wrap(fill=False):
     with ui.value_box(showcase=icon_svg("earlybirds")):
@@ -101,7 +106,7 @@ with ui.layout_columns():
 
 #ui.include_css(app_dir / "styles.css")
 
-
+# Define Reactive Calculation
 @reactive.calc
 def filtered_df():
     filt_df = df[df["species"].isin(input.species())]
