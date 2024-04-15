@@ -7,7 +7,7 @@ import palmerpenguins
 
 df = palmerpenguins.load_penguins()
 
-ui.page_opts(title="Penguins dashboard", fillable=True)
+ui.page_opts(title="Sandra's Penguins dashboard", fillable=True)
 
 
 with ui.sidebar(title="Filter controls"):
@@ -22,7 +22,7 @@ with ui.sidebar(title="Filter controls"):
     ui.h6("Links")
     ui.a(
         "GitHub Source",
-        href="https://github.com/denisecase/cintel-07-tdash",
+        href="https://github.com/s572396/cintel-07-tdash",
         target="_blank",
     )
     ui.a(
@@ -64,7 +64,7 @@ with ui.layout_column_wrap(fill=False):
             return f"{filtered_df()['bill_length_mm'].mean():.1f} mm"
 
     with ui.value_box(showcase=icon_svg("ruler-vertical")):
-        "Average bill depth"
+        "Avg bill depth"
 
         @render.text
         def bill_depth():
