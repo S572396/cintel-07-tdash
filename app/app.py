@@ -6,6 +6,9 @@ from shiny import reactive
 from shiny.express import input, render, ui
 import palmerpenguins 
 
+
+
+
 # Define data frame palmer penguins
 df = palmerpenguins.load_penguins()
 
@@ -29,27 +32,32 @@ with ui.sidebar(title="Filter controls", style="background-color: #e6e6fa;"):  #
         "GitHub Source",
         href="https://github.com/s572396/cintel-07-tdash",
         target="_blank",
+        style="font-style: italic;"  # Apply italic style inline
     )
     ui.a(
         "GitHub App",
         href="https://denisecase.github.io/cintel-07-tdash/",
         target="_blank",
+        style="font-style: italic;"  # Apply italic style inline
     )
     ui.a(
         "GitHub Issues",
         href="https://github.com/denisecase/cintel-07-tdash/issues",
         target="_blank",
+        style="font-style: italic;"  # Apply italic style inline
     )
-    ui.a("PyShiny", href="https://shiny.posit.co/py/", target="_blank")
+    ui.a("PyShiny", href="https://shiny.posit.co/py/", target="_blank", style="font-style: italic;")  # Apply italic style inline
     ui.a(
         "Template: Basic Dashboard",
         href="https://shiny.posit.co/py/templates/dashboard/",
         target="_blank",
+        style="font-style: italic;"  # Apply italic style inline
     )
     ui.a(
         "See also",
         href="https://github.com/denisecase/pyshiny-penguins-dashboard-express",
         target="_blank",
+        style="font-style: italic;"  # Apply italic style inline
     )
 
 # Main Page Layout
@@ -112,6 +120,7 @@ def filtered_df():
     filt_df = df[df["species"].isin(input.species())]
     filt_df = filt_df.loc[filt_df["body_mass_g"] < input.mass()]
     return filt_df
+
 
 
 
