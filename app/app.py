@@ -13,7 +13,7 @@ df = palmerpenguins.load_penguins()
 
 ui.page_opts(title="Sandra's Penguins dashboard", fillable=True)
 
-
+# For sidebar
 with ui.sidebar(title="Filter controls"):
     ui.input_slider("mass", "Mass", 2000, 6000, 6000)
     ui.input_checkbox_group(
@@ -22,6 +22,9 @@ with ui.sidebar(title="Filter controls"):
         ["Adelie", "Gentoo", "Chinstrap"],
         selected=["Adelie", "Gentoo", "Chinstrap"],
     )
+
+    # Links
+    
     ui.hr()
     ui.h6("Links")
     ui.a(
@@ -53,6 +56,7 @@ with ui.sidebar(title="Filter controls"):
 
 # Main Page Layout
 
+# favicon
 with ui.layout_column_wrap(fill=False):
     with ui.value_box(showcase=icon_svg("earlybirds")):
         "Number of penguins"
@@ -75,7 +79,7 @@ with ui.layout_column_wrap(fill=False):
         def bill_depth():
             return f"{filtered_df()['bill_depth_mm'].mean():.1f} mm"
 
-
+#Scatter Plot
 with ui.layout_columns():
     with ui.card(full_screen=True):
         ui.card_header("Bill length and depth")
@@ -88,7 +92,7 @@ with ui.layout_columns():
                 y="bill_depth_mm",
                 hue="species",
             )
-
+# Dataframe for Statistics
     with ui.card(full_screen=True):
         ui.card_header("Penguin Data")
 
